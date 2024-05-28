@@ -194,6 +194,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\ThirdPartyServicesProvider::class,
 
     ],
 
@@ -211,5 +212,9 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
+
+    'currency_api' => [
+        'key' => 'cur_live_BaUSTWrL9z6vWPRCt1YK0xGKG665sIhPBq2dqwKm'
+    ]
 
 ];
