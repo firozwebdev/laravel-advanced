@@ -1,0 +1,45 @@
+version: '3.7'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: laravel_imran_anis
+    container_name: laravel_imran_anis
+    restart: unless-stopped
+    tty: true
+    environment:
+      SERVICE_NAME: laravel_imran_anis
+      SERVICE_TAGS: dev
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+      - ./.docker/nginx/nginx.conf:/etc/nginx/sites-available/default
+    networks:
+      - laravel_imran_anis
+    ports:
+      - "8001:80"  # Map port 8000 on host to port 80 in the container
+      
+  mysql:
+    image: mysql:8.0
+    container_name: laravel_imran_anis_test_db
+    restart: unless-stopped
+    tty: true
+    # ports:
+    #   - "3307:3306"
+    environment:
+      MYSQL_DATABASE: laravel
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_USER: laraveluser
+      MYSQL_PASSWORD: secret
+    volumes:
+      - mysql_data:/var/lib/mysql/
+    networks:
+      - laravel_imran_anis
+
+networks:
+  laravel_imran_anis:
+    driver: bridge
+
+volumes:
+  mysql_data:
