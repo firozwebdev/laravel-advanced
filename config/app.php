@@ -214,7 +214,7 @@ return [
     ])->toArray(),
 
     'currency_api' => [
-        'key' => 'cur_live_BaUSTWrL9z6vWPRCt1YK0xGKG665sIhPBq2dqwKm'
+        'key' => 'cur_live_LVloe8yRK4OR5LcAD2XracRm7x6Y5mkH4La3ocup'
     ]
 
 ];

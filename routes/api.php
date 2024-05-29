@@ -25,9 +25,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/sync/invoices/unpaid', function(Request $request, CurrencyApiInterface $converter) {
 
-    //$converter = new CurrencyApiService();
-    //dd($converter->convert('USD','CAD',200));
-
+    
+      
     return [
         ['id' => 1, 'client_id' => 3, 'currency' => 'CAD', 'amount' => $converter->convert('USD','USD',400)],
         ['id' => 4, 'client_id' => 6, 'currency' => 'EUR', 'amount' => $converter->convert('USD','EUR',200)],
